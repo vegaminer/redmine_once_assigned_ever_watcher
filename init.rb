@@ -5,6 +5,6 @@ Redmine::Plugin.register :once_assigned_ever_watcher do
   author 'Kevin Neuenfeldt'
   description 'If you change the assignee of an issue he will automatically become a watcher of that issue'
   version '0.1.0'
-  url 'www.enervision.eu'
-  author_url 'www.thetalogn.de'
+  url 'https://github.com/raafael911/redmine_once_assigned_ever_watcher'
+  author_url ''
 end
