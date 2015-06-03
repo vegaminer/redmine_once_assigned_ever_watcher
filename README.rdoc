@@ -1,3 +1,0 @@
-= once_assigned_ever_watcher
-
-Description goes here
