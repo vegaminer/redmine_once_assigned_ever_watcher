@@ -4,18 +4,21 @@ module OnceAssignedEverWatcher
     def controller_issues_edit_before_save (context={})
 
       issue = context[:issue]
-  		journal = context[:journal]
+      journal = context[:journal]
 
-      if issue.assigned_to_id != nil
-        Watcher.find_or_create_by(watchable_type: "Issue",
+      if defined?( issue )
+        if issue.assigned_to_id != nil
+       	  Watcher.find_or_create_by(watchable_type: "Issue",
                                   watchable_id: issue.id,
                                   user_id: issue.assigned_to_id)
-      end
+	end
 
-      Watcher.find_or_create_by(watchable_type: "Issue",
-                                watchable_id: issue.id,
+	if defined?( journal ) && journal != nil
+      	  Watcher.find_or_create_by(watchable_type: "Issue",
+        	                  watchable_id: issue.id,
                                 user_id: journal.user.id)
-
+        end	
+      end
     end
 
     def controller_issues_bulk_edit_before_save(context={})
