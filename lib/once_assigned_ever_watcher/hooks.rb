@@ -6,7 +6,7 @@ module OnceAssignedEverWatcher
       issue = context[:issue]
       journal = context[:journal]
 
-      if defined?( issue )
+      if defined?( issue ) && !issue.id.blank?
         if issue.assigned_to_id != nil
        	  Watcher.find_or_create_by(watchable_type: "Issue",
                                   watchable_id: issue.id,
